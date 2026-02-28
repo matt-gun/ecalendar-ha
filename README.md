@@ -15,7 +15,7 @@ Daily planner add-on for Home Assistant with events, chores, to-do lists, weathe
 1. In Home Assistant: **Settings** → **Add-ons** → **Add-on store**
 2. Click the **⋮** (three dots) → **Repositories**
 3. Add: `https://github.com/matt-gun/ecalendar-ha`
-4. Install **eCalendar** add-on
+4. Install **eCalendar (matt-gun)** add-on
 5. Start the add-on
 6. Open **eCalendar** from the sidebar
 

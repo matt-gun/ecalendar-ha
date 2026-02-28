@@ -24,7 +24,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="eCalendar",
     description="Daily planner - events, chores, lists, weather",
-    version="1.0.6",
+    version="1.0.7",
     lifespan=lifespan,
 )
 
