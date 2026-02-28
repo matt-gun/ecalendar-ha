@@ -13,8 +13,8 @@ RUN apk add --no-cache python3 py3-pip
 
 COPY backend/requirements.txt /tmp/
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
-    && pip3 install --upgrade pip \
-    && pip3 install --no-cache-dir -r /tmp/requirements.txt \
+    && pip3 install --break-system-packages --upgrade pip \
+    && pip3 install --break-system-packages --no-cache-dir -r /tmp/requirements.txt \
     && apk del .build-deps
 
 WORKDIR /app
