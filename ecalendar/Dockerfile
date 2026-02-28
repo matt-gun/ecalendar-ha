@@ -9,8 +9,7 @@ RUN npm run build
 # Stage 2: Runtime - Home Assistant addon base (amd64; for aarch64 use aarch64-base)
 FROM ghcr.io/home-assistant/amd64-base:3.15
 
-RUN apk add --no-cache nginx python3 py3-pip \
-    && rm -f /etc/nginx/http.d/default.conf
+RUN apk add --no-cache python3 py3-pip
 
 COPY backend/requirements.txt /tmp/
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
@@ -21,7 +20,6 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
 WORKDIR /app
 COPY backend/app ./app
 COPY --from=frontend /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/http.d/default.conf
 
 ENV PYTHONUNBUFFERED=1
 ENV DATA_DIR=/data
