@@ -1,0 +1,14 @@
+name: eCalendar
+version: "1.0.0"
+slug: ecalendar
+description: Daily planner - events, chores, lists, weather
+arch:
+  - aarch64
+  - amd64
+init: false
+ingress: true
+ports: {}
+ports_description: {}
+image: "ghcr.io/mouski87/ecalendar-{arch}"
+options: {}
+schema: {}
