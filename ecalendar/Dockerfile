@@ -7,8 +7,8 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Runtime - Home Assistant addon base
-ARG BUILD_FROM
-FROM $BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.15
+FROM ${BUILD_FROM}
 
 RUN apk add --no-cache nginx python3 py3-pip \
     && rm -f /etc/nginx/http.d/default.conf
