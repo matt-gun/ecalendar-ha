@@ -14,6 +14,7 @@ RUN apk add --no-cache nginx python3 py3-pip \
 
 COPY backend/requirements.txt /tmp/
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
+    && pip3 install --upgrade pip \
     && pip3 install --no-cache-dir -r /tmp/requirements.txt \
     && apk del .build-deps
 
