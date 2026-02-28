@@ -1,3 +1,5 @@
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.21
+
 # Stage 1: Build frontend
 FROM node:20-alpine AS frontend
 WORKDIR /app
@@ -7,7 +9,6 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Runtime - Home Assistant addon base (build_from in build.yaml)
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.21
 FROM ${BUILD_FROM}
 
 RUN apk add --no-cache python3 py3-pip
