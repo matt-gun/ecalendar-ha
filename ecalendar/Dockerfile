@@ -6,8 +6,9 @@ RUN npm ci
 COPY frontend/ ./
 RUN npm run build
 
-# Stage 2: Runtime - Home Assistant addon base (amd64; for aarch64 use aarch64-base)
-FROM ghcr.io/home-assistant/amd64-base:3.21
+# Stage 2: Runtime - Home Assistant addon base (build_from in build.yaml)
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.21
+FROM ${BUILD_FROM}
 
 RUN apk add --no-cache python3 py3-pip
 
@@ -18,9 +19,6 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
     && apk del .build-deps
 
 WORKDIR /app
-# Cache bust: change this to force rebuild (e.g. 1.0.2)
-ARG CACHEBUST=1.0.2
-RUN echo "Build ${CACHEBUST}"
 COPY backend/app ./app
 COPY --from=frontend /app/dist /usr/share/nginx/html
 

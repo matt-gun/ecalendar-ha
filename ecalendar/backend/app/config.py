@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    data_dir: Path = Path("/app/data")
+    data_dir: Path = Path("/data")
     secret_key: str = "change-me-in-production"
     debug: bool = False
 
