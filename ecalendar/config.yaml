@@ -9,6 +9,5 @@ init: false
 ingress: true
 ports: {}
 ports_description: {}
-image: "ghcr.io/mouski87/ecalendar-{arch}"
 options: {}
 schema: {}
