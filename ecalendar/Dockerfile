@@ -7,7 +7,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Runtime - Home Assistant addon base (amd64; for aarch64 use aarch64-base)
-FROM ghcr.io/home-assistant/amd64-base:3.15
+FROM ghcr.io/home-assistant/amd64-base:3.21
 
 RUN apk add --no-cache python3 py3-pip
 
