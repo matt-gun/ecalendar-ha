@@ -18,6 +18,9 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
     && apk del .build-deps
 
 WORKDIR /app
+# Cache bust: change this to force rebuild (e.g. 1.0.2)
+ARG CACHEBUST=1.0.2
+RUN echo "Build ${CACHEBUST}"
 COPY backend/app ./app
 COPY --from=frontend /app/dist /usr/share/nginx/html
 
