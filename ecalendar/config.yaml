@@ -1,6 +1,6 @@
-name: eCalendar (matt-gun)
+name: eCalendar
 version: "1.0.7"
-slug: ecalendar-matt
+slug: ecalendar
 description: Daily planner - events, chores, lists, weather
 arch:
   - aarch64
